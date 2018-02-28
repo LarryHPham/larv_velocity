@@ -1,0 +1,145 @@
+@import "dvp_global";
+
+.dvp-feedback {
+  &-overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background-color: @black;
+    z-index: 999;
+    iframe {
+      border: none;
+    }
+    &-closebtn {
+      width: 17px;
+      height: 17px;
+      object-fit: contain;
+      position: absolute;
+      right: 22px;
+      top: 22px;
+      cursor: pointer;
+      svg {
+        color: @border-grey1;
+      }
+    }
+
+  }
+  &-wrapper {
+    width: 100%;
+    height: 60px;
+    margin-bottom: 40px;
+  }
+  &-container {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+    background-color: @bg-grey2;
+    display: flex;
+    cursor: pointer;
+  }
+  &-content {
+    width: 92%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  &-text {
+    .dvpGlobalFont();
+    width: 70%;
+
+    margin: auto;
+    text-align: left;
+    float: left;
+    line-height: 2;
+    color: @black;
+  }
+  &-plus {
+    width: 30%;
+    height: 24px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    text-align: right;
+    &-text {
+      .dvpGlobalFont(@font-weight: @heavy);
+      line-height: 2;
+      letter-spacing: 0.9px;
+      text-align: right;
+      flex: 1;
+      color: @text-blue1;
+      .text-style-1 {
+        letter-spacing: 0.7px;
+      }
+    }
+    &-icon {
+      width: 21px;
+      height: 24px;
+      margin: auto auto auto 15px;
+      line-height: 1;
+      letter-spacing: 1.7px;
+      text-align: center;
+      color: @text-blue1;
+    }
+  }
+}
+
+.module-resize[data-min-width~="1280"] {
+  .dvp-feedback-plus-text {
+    margin: auto
+  }
+}
+
+.module-resize[data-min-width~="992"][data-max-width~="1279"] {
+  .dvp-feedback-text {
+    text-align: left;
+    margin: auto;
+  }
+  .dvp-feedback-plus-text {
+    margin: auto
+  }
+  .dvp-feedback-wrapper {
+    height: 80px;
+  }
+}
+
+.module-resize[data-min-width~="768"][data-max-width~="991"] {
+  .dvp-feedback-text {
+    text-align: left;
+    margin: auto;
+  }
+  .dvp-feedback-plus-text {
+    margin: auto
+  }
+  .dvp-feedback-wrapper {
+    height: 80px;
+  }
+}
+.module-resize[data-max-width~="659"] {
+  .dvp-feedback-content {
+    flex-direction: column
+  }
+  .dvp-feedback-text {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 18px;
+  }
+  .dvp-feedback-plus {
+    width: 100%;
+  }
+  .dvp-feedback-plus-text {
+    letter-spacing: 0.9px;
+    text-align: center;
+    flex: none;
+    margin-left: auto;
+  }
+  .dvp-feedback-plus-icon {
+    text-align: left;
+    margin-left: 15px;
+  }
+  .dvp-feedback-wrapper {
+    height: 130px;
+  }
+}

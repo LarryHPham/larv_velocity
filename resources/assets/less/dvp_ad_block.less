@@ -1,0 +1,61 @@
+@import "dvp_global"; // ad-block
+
+.ad-block {
+  position: relative;
+  margin: 30px auto 40px;
+  text-align: center;
+  width: 100%;
+}
+
+.adzone_content {
+  position: fixed;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  transform: translateX(-50%);
+  -webkit-transform: none;
+  z-index: 1;
+}
+
+#adZone2 {
+  display: none;
+}
+
+#adZone3 {
+  display: none;
+}
+
+.module-resize[data-min-width~="1280"] {
+  #adZone2 {
+    display: block;
+  }
+
+  #adZone3 {
+    display: none;
+  }
+}
+
+.module-resize[data-min-width~="768"][data-max-width~="1279"] {
+  #adZone2 {
+    display: none;
+  }
+
+  #adZone3 {
+    display: block;
+  }
+}
+
+.module-resize[data-min-width~="100"][data-max-width~="768"] {
+  .ad-block {
+    margin: 20px auto 30px;
+  }
+}
+
+.module-resize[data-min-width~="550"][data-max-width~="768"] {
+  .adZone1 {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+  }
+}
+//end responsive
+//end ad-block

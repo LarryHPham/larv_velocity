@@ -1,0 +1,408 @@
+@import "dvp_global";
+//related
+.related {
+  &-line {
+    position: relative;
+    font-size: 14px;
+    font-weight: @heavy;
+    text-align: left;
+    color: @text-grey3;
+    z-index: 1;
+    overflow: hidden;
+    &:before {
+      border-top: 1px solid @border-grey1;
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      z-index: -1;
+    }
+    span {
+      position: relative;
+      left: 20px;
+      background: @white;
+      padding: 0 5px;
+    }
+  }
+  &-container {
+    width: 100%;
+    height: @relatedBlockHeight;
+    margin: 9px 0 22px 0;
+  }
+  &-border {
+    width: 100%;
+    border-bottom: 1px solid @border-grey1;
+    margin-bottom: 20px;
+  }
+}
+
+img {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+.wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: @relatedBlockHeight;
+  box-sizing: border-box;
+}
+
+.edge_shader {
+  position: absolute;
+  right: -5px;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.8);
+  z-index: 999;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.title_overlay {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+}
+
+.title_image_div {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  border-radius: 3px;
+  background-size: 1000% 1000%;
+  image-rendering: optimizeSpeed; /*                     */
+  image-rendering: -moz-crisp-edges; /* Firefox             */
+  image-rendering: -o-crisp-edges; /* Opera               */
+  image-rendering: -webkit-optimize-contrast; /* Chrome (and Safari) */
+  image-rendering: optimize-contrast; /* CSS3 Proposed       */
+  -ms-interpolation-mode: nearest-neighbor; /* IE8+                */
+  background-color: rgba(50, 50, 50, 0.9);
+}
+
+.title_image_div.overlay::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  opacity: 0.9;
+  background-color: inherit;
+}
+
+.title_image {
+  //centers img in container
+  min-width: @relatedBlockWidth;
+  min-height: @relatedBlockHeight;
+  max-width: 190%;
+  max-height: 100%;
+  left: 50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  position: relative;
+  opacity: 0.45;
+}
+
+.related-title {
+  position: absolute;
+  bottom: 6px;
+  right: 0;
+  left: 10px;
+  width: 122px;
+  height: 54px; //line-height * 3, will be used for lineClamp function
+  white-space: normal;
+  font-weight: @heavy;
+  color: @white;
+  font-size: 14px;
+  transition: opacity 0.2s ease-in-out;
+  z-index: 9;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  line-height: 18px;
+  overflow: hidden;
+  &-offset {
+    max-height: 54px; //needs to be the same as parent height
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.instructions_icon {
+  position: relative;
+  width: 25px;
+  height: 31px;
+}
+
+.instructions_text {
+  width: 150px;
+  opacity: 0.7;
+  position: relative;
+  left: 34px;
+  top: -26px;
+  white-space: normal;
+  text-transform: uppercase;
+}
+
+@keyframes swipe {
+  0% {
+    -webkit-transform: translateX(12px);
+    -moz-transform: translateX(12px);
+    -ms-transform: translateX(12px);
+    -o-transform: translateX(12px);
+    transform: translateX(12px);
+    opacity: 1;
+  }
+  50% {
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateX(12px);
+    -moz-transform: translateX(12px);
+    -ms-transform: translateX(12px);
+    -o-transform: translateX(12px);
+    transform: translateX(12px);
+    opacity: 1;
+  }
+}
+
+.related {
+  position: relative;
+  right: 0;
+  width: 100%;
+  height: @relatedBlockHeight;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+  z-index: 5;
+  margin-left: 0;
+  transition: all 0.6s ease-in-out;
+}
+
+.list_wrapper {
+  position: relative;
+  right: @relatedBlockWidth + @relatedMargin;
+  height: 100%;
+  width: 100%;
+  display: inline-block;
+  margin-right: 0;
+  transition: all 0.6s ease-in-out;
+}
+
+.related_block {
+  position: relative;
+  display: inline-block;
+  height: @relatedBlockHeight;
+  width: @relatedBlockWidth;
+  margin-right: @relatedMargin;
+  background-color: rgba(50, 50, 50, 0.52);
+  transition: all 0.6s ease-in-out;
+  border-radius: 3px;
+}
+
+.list_item {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  border-radius: 3px;
+  border: 1px solid @bg-grey1;
+  box-sizing: border-box;
+}
+
+.profile_image_div {
+  width: 100%;
+  height: 150px;
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  background-size: 1000% 1000%;
+  image-rendering: optimizeSpeed; /*                     */
+  image-rendering: -moz-crisp-edges; /* Firefox             */
+  image-rendering: -o-crisp-edges; /* Opera               */
+  image-rendering: -webkit-optimize-contrast; /* Chrome (and Safari) */
+  image-rendering: optimize-contrast; /* CSS3 Proposed       */
+  -ms-interpolation-mode: nearest-neighbor; /* IE8+                */
+}
+
+.profile_image_div.fallback::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 99;
+  opacity: 0.6;
+  background-color: inherit;
+}
+
+.profile_image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.num {
+  position: absolute;
+  right: -5px;
+  top: -20px;
+  width: 0;
+  height: 0;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  border-left: 30px solid black;
+  transform: rotate(-45deg);
+  z-index: 100;
+}
+
+.num_text {
+  font-size: 10px;
+  color: white;
+  width: 20px;
+  top: -9px;
+  right: 8px;
+  text-align: center;
+  font-weight: @light;
+  position: absolute;
+  transform: rotate(45deg);
+}
+
+.num_text b {
+  position: relative;
+  top: 2px;
+  font-size: 12px;
+  font-weight: @heavy;
+}
+
+.info {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  top: 150px;
+  display: table;
+}
+
+.info .info_container {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.name {
+  font-size: 14px;
+  width: 215px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 5px;
+}
+
+.related_background {
+  position: relative;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.button {
+  width: 100%;
+  position: absolute;
+  top: 40%;
+  z-index: 6;
+  cursor: pointer;
+  &-left {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: @white;
+    border-radius: 50%;
+    left: 11px;
+    &-arrow {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      padding-right: 2px;
+    }
+    svg {
+      transform: rotate(180deg);
+    }
+    &:hover {
+      background: -webkit-linear-gradient(@grd-blue1, @grd-blue2);
+      background: -moz-linear-gradient(@grd-blue1, @grd-blue2);
+      background: -o-linear-gradient(@grd-blue1, @grd-blue2);
+      background: linear-gradient(@grd-blue1, @grd-blue2);
+    }
+    &:hover svg {
+      stroke: @white;
+    }
+  }
+  &-right {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: @white;
+    border-radius: 50%;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.3);
+    right: 11px;
+    &-arrow {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      padding-left: 2px;
+    }
+    &:hover {
+      background: -webkit-linear-gradient(@grd-blue1, @grd-blue2);
+      background: -moz-linear-gradient(@grd-blue1, @grd-blue2);
+      background: -o-linear-gradient(@grd-blue1, @grd-blue2);
+      background: linear-gradient(@grd-blue1, @grd-blue2);
+    }
+    &:hover svg {
+      stroke: @white;
+    }
+  }
+}
+//responsive flags
+.module-resize[data-max-width~="375"] {
+  .button {
+    display: none;
+  }
+}
+//end responsive
+//end related

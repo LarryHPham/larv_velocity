@@ -1,0 +1,67 @@
+@import "dvp_global";
+
+.error-bg {
+  width: 100%;
+  height: 100%;
+  background-color: @white;
+  margin: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-image: -webkit-linear-gradient(110deg, #fff 65%, rgba(82, 56, 91, 0.05) 45%);
+  &_graphic {
+    width: 28%;
+    max-width: 645px;
+    object-fit: contain;
+    margin: auto;
+    display: flex;
+    margin-top: 5%;
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &_text{
+    width:985px;
+    height: auto;
+    .dvpGlobalFont(@font-size: 42px; @font-weight: @heavy);
+    line-height: 1.24;
+    letter-spacing: 4px;
+    text-align: center;
+    color: #52385b;
+    margin-top: 40px;
+
+  }
+  &_ad {
+    width: auto;
+    height: auto;
+    margin: 40px auto 20px auto;
+  }
+}
+
+.module-resize[data-min-width~="320"][data-max-width~="767"] {
+  .error-bg{
+    background-image: -webkit-linear-gradient(110deg, #fff 80%, rgba(82, 56, 91, 0.05) 20%);
+
+    &_text{
+      width: 300px;
+      .dvpGlobalFont(@font-weight: @heavy);;
+      margin-top: 30px;
+    }
+    &_ad{
+      margin-top: 30px;
+    }
+  }
+}
+
+.module-resize[data-min-width~="768"][data-max-width~="1279"] {
+  .error-bg{
+    &_text{
+      width: 610px;
+      .dvpGlobalFont(@font-size: 22px; @font-weight: @heavy);
+    }
+  }
+
+}
+

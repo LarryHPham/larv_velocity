@@ -1,0 +1,134 @@
+@import "dvp_global";
+//social
+.dvp_social {
+  margin: 0 auto 10px auto;
+  width: 40px;
+  height: 40px;
+  background-color: @bg-blue1;
+  border-radius: 5px;
+  display: flex;
+  cursor: pointer;
+  & div {
+    height: 20px;
+    width: 20px;
+    margin: auto;
+  }
+  &-auto-scroll {
+    height: auto;
+    width: 40px;
+    margin-left: 20px;
+    position: relative;
+  }
+}
+//end social
+
+/* Social mobile */
+@keyframes clipboardslidein {
+  0% {
+    top: -5%;
+  }
+  100% {
+    top: -10%;
+  }
+}
+
+@keyframes clipboardslideback {
+  0% {
+    top: -10%;
+  }
+  100% {
+    top: -6%;
+  }
+}
+
+.dvp {
+  &-shareicons {
+    width: 100%;
+    height: 100vh;
+    background-color: @bg-blue1;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+  }
+  &-closesvg {
+    width: 5%;
+    height: 5%;
+    color: @white;
+    margin: 3.125% 3.125% 3.125% auto;
+    cursor: pointer;
+    svg {
+      max-width: 31px;
+    }
+  }
+  &_tooltip {
+    width: 36%;
+    border-radius: 5px;
+    background-color: @text-grey1;
+    font-size: 18px;
+    line-height: 1;
+    font-weight: @normal;
+    display: none;
+    text-align: center;
+    color: @white;
+    position: absolute;
+    padding: 1.6% 0;
+    left:50%;
+    transform: translateX(-50%);
+  }
+  &_slidein_tooltip {
+    animation-name: clipboardslidein;
+    animation-duration: .2s;
+    top: -10%;
+  }
+  &_slideback_tooltip {
+    animation: clipboardslideback;
+    animation-duration: .2s;
+    top: -6%;
+  }
+  &-share-allIcons {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: 40%;
+    height: 60%;
+    transform: translateY(-40%);
+  }
+  &-each-icon {
+    width: 10.271%;
+    object-fit: contain;
+    cursor: pointer;
+    margin: auto;
+    svg {
+      max-height: 70px;
+    }
+  }
+  &_shareLink {
+    display: none;
+  }
+}
+
+.dvp_tooltip {
+  font-size: 12px;
+}
+
+.module-resize[data-max-width~="768"] {
+  .dvp-shareicons {
+    display: flex;
+    flex-direction: column
+  }
+}
+
+.module-resize[data-min-width~="400"][data-max-width~="550"] {
+  .dvp_tooltip {
+    font-size: 12px;
+  }
+}
+
+.module-resize[data-max-width~="399"] {
+  .dvp_tooltip {
+    font-size: 9px;
+  }
+}

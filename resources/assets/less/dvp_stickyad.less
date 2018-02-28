@@ -1,0 +1,44 @@
+@import "dvp_global";
+
+.sticky_wrapper {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  z-index: 99;
+  &-ad {
+    position: relative;
+    width: 320px;
+    height: 50px;
+    margin: auto auto 0 auto;
+  }
+  &-close {
+    width: 20px;
+    height: 20px;
+    background-color: @text-grey1;
+    border: solid 1px @white;
+    margin-left: auto;
+    margin-right: 5px;
+    top: -10px;
+    right: 0;
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    cursor: pointer;
+    &-icon {
+      width: 10px;
+      height: 16px;
+      font-size: 12px;
+      letter-spacing: 0.3px;
+      text-align: center;
+      color: @white;
+      margin: auto;
+    }
+  }
+}
+
+.module-resize[data-max-width~="550"] {
+  .sticky_wrapper {
+    width: 100%;
+    height: 60px;
+  }
+}

@@ -1,0 +1,105 @@
+@white: #ffffff;
+@black: #000000;
+@text-grey1: #272727;
+@text-grey2: #999999;
+@text-grey3: #666666;
+@text-blue1: #3098ff;
+@bg-grey1: #e1e1e1;
+@bg-grey2: #f2f2f2;
+@bg-blue1: #3098ff;
+@border-grey1: #cccccc;
+@grd-blue1: #3098ff;
+@grd-blue2: #34d4ff;
+@ad-background: #ff4d51;
+@thin: 100;
+@light: 300;
+@normal: 400;
+@medium: 500;
+@bold: 700;
+@heavy: 900;
+
+//global width/height and margin of related tiles
+@relatedBlockWidth: 142px;
+@relatedBlockHeight: 187px;
+@relatedMargin: 5px;
+@transitionHalf: all 0.5s ease-in-out;
+
+//viewports
+@mobile: ~"(max-width: 768px)";
+@tablet: ~"(max-width: 1280px)";
+@desktop: ~"(min-width: 1281px)";
+
+.dvpGlobalFont(@font-family: Lato, sans-serif; @font-size: 12px; @font-weight: @normal) {
+  font-family: @font-family;
+  font-size: @font-size;
+  font-weight: @font-weight;
+}
+
+html, body {
+  font-family: Lato, sans-serif;
+  margin: 0;
+  height: auto;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+/*******************
+Responsive setup:
+The responsive breakpoints are set by the content within the module-resize:before declaration.
+These are put into an array via javascript within the master.blade.php file and the code then
+checks the size of the parent container. Once the parent container size is found the code then
+loops through the breakpoint array and two attributes are set to the child container which contain
+breakpoints that are less than and/or greater than the parent. Examples of how breakpoints are set
+in .less are dictated below:
+
+.module-resize[data-max-width~="768"] {
+    check if max-width is <= 768px
+}
+
+.module-resize[data-min-width~="769"] {
+    check if min-width is >= 768px
+}
+
+.module-resize[data-min-width~="375"][data-max-width~="768"] {
+    checks if min-width >= 375px AND max-width <= 768px
+}
+*******************/
+
+.module-resize:before {
+  content: "100 320 375 376 399 400 540 541 550 659 660 767 768 769 991 992 1279 1280";
+}
+
+.module:before {
+  display: none;
+}
+
+.module-resize {
+  color: #fff;
+}
+
+.stick-top {
+  position: fixed !important;
+  left: 0 !important;
+  right: 0 !important;
+}
+//end responsive

@@ -1,0 +1,21 @@
+@import "dvp_global";
+//header
+.dvp_header {
+  width: 100%;
+  height: 150px;
+  @media @mobile {
+    height: 80px;
+  }
+  &-container {
+    width: 100%;
+    height: 150px;
+    background-color: @bg-grey1;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    @media @mobile {
+      height: 80px;
+    }
+  }
+}
+//end header
